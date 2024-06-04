@@ -1,0 +1,20 @@
+General thoughts
+On Drift: All trades are done like: <input asset> | PERP token (Perpetual Protocol token) https://www.coinbase.com/pl/price/perpetual-protocol
+For Deriverse do we want to use also PERP? This is how it looks on figma. But user can deposit USDC, so should USDC be swapped to PERP?
+
+Deposit
+Drift: user deposits SOL which value is at least 10 USD.
+Deriverse: user deposits at least 50 USDC.
+to discover: is deposit swapped to PERP in Drift.
+
+Buy/Sell
+JIT AMM https://docs.chainflip.io/concepts/swaps-amm/just-in-time-amm-protocol
+https://docs.drift.trade/about-v2/jit-auctions
+
+
+
+Trade view
+oracles price are provided by oracles: Pyth (e.g. SOL_PERP and mostly this one os used), Switchboard (DRIFT-PERP only) - I know it from UI, not code.
+Charts from https://www.tradingview.com/?utm_source=https%3A%2F%2Fapp.drift.trade&utm_medium=library&utm_campaign=library
+
+
