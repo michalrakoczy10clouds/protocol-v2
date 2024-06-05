@@ -1,3 +1,43 @@
+Input from client:
+We’d need help with shipping a testnet that supports trading competitions. That means a user can come in, open the application on the Deriverse website. Then they see the interface. They connect their Phantom wallet. Then they choose which market they want to trade, e.g. SOL/USD. They choose market order, cross margin, specify the order size, e.g. 100 USDC. Then they select “Buy / Long” or Sell / Short.” They approve the transaction in their Phantom wallet. Now they see their trade in the panel below. When closing a trade, the user clicks on “Manage” in the bottom box, referring to the trade they want to close. Then they see the option to close the trade on the left side box, or in a separate pop up box. We should be able to store the P&L of individual addresses. We should be able to make users signup, so that we can link an address to a social media account. We should also have leaderboards, and easy way to get testnet USDC.
+By testnet I mean just the frontend part
+The backend will be developed internally, by Bernardo - so you guys would need to coordinate
+We'll be developing our thinking on this, after conversations with traders, but this is a rough start
+
+My questions and answers from client:
+Most important: scope. Do we want to create whole logic from scratch or use Drift protocol? In other words - is Deriverse app suppose to be a proxy or a gateway to Drift?
+No, we will fork and deploy a new version of Drift v2 and we'll tweak it. We should have a separate discussion on what to change with Michal Hossien - but currently, the most significant change will probably be to remove the JIT liquidity layer and (maybe) the AMM liquidity layer.
+
+Is liquidity our concern?
+In the testnet phase, no, because we can use testnet fake assets. In mainnet phases, of course - we're working on deals with market makers.
+
+If we’re going to use mostly Drift, what is in scope we should implement on our site? Will we need additional calculation before calling Drift?
+Not sure, need to discuss with Michal Hossien.
+
+Do we want any KYC? If not now, so maybe in the future?
+Not for now.
+
+Do we want to use as deposit different token than USDC in the future?
+Not for now. Maybe a different stablecoin in the future, like JPY.
+
+Should minimal amount to deposit/withdraw be configurable?
+No, it will be 50 usdc.
+
+And do we want some administration superuser?
+Michal H.?
+
+Do we want to charge any additional fee on deposit/withdraw action?
+No.
+
+If there is any need of backend service, what kind of infrastructure do you want or we can choose? Do you have any preferences like AWS, Google Cloud, Azure? Can we also choose technologies or you want some specific like e.g. Java and Spring or Rust with Rocket?
+This is on Michal H.
+
+There is “Add funds” functionality. Can user add less funds than 50 USDC? Orr this supposes to call deposit window?
+Should not be less than 50 USDC.
+
+Scope: should we track user transactions or history is also read from Drift?
+Since we're deploying our own version, we need to have our own transaction history.
+
 General thoughts
 On Drift: All trades are done like: <input asset> | PERP token (Perpetual Protocol token) https://www.coinbase.com/pl/price/perpetual-protocol
 For Deriverse do we want to use also PERP? This is how it looks on figma. But user can deposit USDC, so should USDC be swapped to PERP?
