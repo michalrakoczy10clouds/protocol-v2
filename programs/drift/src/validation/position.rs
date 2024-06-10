@@ -7,6 +7,7 @@ use crate::state::user::{PerpPosition, SpotPosition};
 use crate::validate;
 use solana_program::msg;
 
+// 10c positions (limit, here can be some changes after increasing MAX_OPEN_ORDERS)
 pub fn validate_perp_position_with_perp_market(
     position: &PerpPosition,
     market: &PerpMarket,
@@ -37,6 +38,7 @@ pub fn validate_perp_position_with_perp_market(
     Ok(())
 }
 
+// 10c ? what is spot position?
 pub fn validate_spot_position(position: &SpotPosition) -> DriftResult {
     validate!(
         position.open_orders <= MAX_OPEN_ORDERS,

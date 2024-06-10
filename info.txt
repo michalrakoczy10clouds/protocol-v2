@@ -43,18 +43,32 @@ On Drift: All trades are done like: <input asset> | PERP token (Perpetual Protoc
 For Deriverse do we want to use also PERP? This is how it looks on figma. But user can deposit USDC, so should USDC be swapped to PERP?
 
 Deposit
-Drift: user deposits SOL which value is at least 10 USD.
-Deriverse: user deposits at least 50 USDC.
-to discover: is deposit swapped to PERP in Drift.
+Drift: user deposits SOL, USDC or BTC which value is at least 10 USD, Deriverse: user deposits at least 50 USDC - so it should work, only we will remove BTC and SOL possibilities
+#to_investigate: is deposit swapped to PERP in Drift.
 
 Buy/Sell
+
 JIT AMM https://docs.chainflip.io/concepts/swaps-amm/just-in-time-amm-protocol
 https://docs.drift.trade/about-v2/jit-auctions
-
-
 
 Trade view
 oracles price are provided by oracles: Pyth (e.g. SOL_PERP and mostly this one os used), Switchboard (DRIFT-PERP only) - I know it from UI, not code.
 Charts from https://www.tradingview.com/?utm_source=https%3A%2F%2Fapp.drift.trade&utm_medium=library&utm_campaign=library
 
+remove the JIT liquidity layer and (maybe) the AMM liquidity layer.
 
+Call 07.06.2024
+Requested changes:
+1. Cross vs isolated (more complex) - Drift has both and question is do we want to remove them? Removing requires work so maybe we should levate as it is
+2. max 32 open orders -> limit should be 100 - looks like simple change of constant constants.MAX_OPEN_ORDERS
+3. Removal JIT and AMM liquidity layers - heave change, need to investigate
+    1. Leverage works by margin
+    2. We want to remove Jet and AMM and only want to keep DEX
+    3. Order goes to JIT, if fails then order book, if fails than AMM (and this always works)
+4. * lower fees / subscription based fees
+    1. Seems to be new feature
+    2. Do not care for demo
+5. Maybe more minors - Matus is going to think about it
+6. Oracles (Pyth on drift) - investigate prices?
+7. Limit at least 50 USDC to deposit - mostly FE work but I think we should add assertion in program
+8. Network of keeper bots - do we need this on testnet? Maybe some CRON to remove orders or some other solution
