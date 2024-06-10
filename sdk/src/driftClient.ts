@@ -4716,6 +4716,7 @@ export class DriftClient {
 		};
 	}
 
+	// 10c BUY/SELL SDK client
 	public async getPlaceAndTakePerpOrderIx(
 		orderParams: OptionalOrderParams,
 		makerInfo?: MakerInfo | MakerInfo[],
