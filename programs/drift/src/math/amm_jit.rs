@@ -152,6 +152,7 @@ pub fn calculate_clamped_jit_base_asset_amount(
     Ok(jit_base_asset_amount)
 }
 
+// 10c ? toremove JIT liquidity layer
 pub fn calculate_amm_jit_liquidity(
     market: &mut PerpMarket,
     taker_direction: PositionDirection,

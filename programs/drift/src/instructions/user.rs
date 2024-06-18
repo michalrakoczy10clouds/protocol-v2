@@ -370,6 +370,7 @@ pub fn handle_deposit(
 
     let spot_market = &mut spot_market_map.get_ref_mut(&market_index)?;
 
+    // 10c DEPOSIT here is token handling: transfer from user to spot market vault
     controller::token::receive(
         &ctx.accounts.token_program,
         &ctx.accounts.user_token_account,
@@ -775,6 +776,7 @@ pub fn handle_transfer_deposit(
     Ok(())
 }
 
+// 10c BUY/SELL handler
 #[access_control(
     exchange_not_paused(&ctx.accounts.state)
 )]

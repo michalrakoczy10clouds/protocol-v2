@@ -74,6 +74,7 @@ fn calculate_quote_asset_amount_surplus(
     Ok(quote_asset_amount_surplus)
 }
 
+// 10c BUY/SELL toremove amm, last layer which always work so user can always have its order done
 pub fn swap_base_asset(
     market: &mut PerpMarket,
     base_asset_swap_amount: u64,

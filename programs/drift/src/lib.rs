@@ -45,6 +45,7 @@ pub mod drift {
 
     // User Instructions
 
+    // 10c init user
     pub fn initialize_user(
         ctx: Context<InitializeUser>,
         sub_account_id: u16,
@@ -64,6 +65,7 @@ pub mod drift {
         handle_initialize_referrer_name(ctx, name)
     }
 
+    // 10c DEPOSIT in program
     pub fn deposit(
         ctx: Context<Deposit>,
         market_index: u16,
@@ -73,6 +75,7 @@ pub mod drift {
         handle_deposit(ctx, market_index, amount, reduce_only)
     }
 
+    // 10c WITHDRAW in program
     pub fn withdraw(
         ctx: Context<Withdraw>,
         market_index: u16,
@@ -90,6 +93,7 @@ pub mod drift {
         handle_transfer_deposit(ctx, market_index, amount)
     }
 
+    // 10c BUY/SELL perp is https://www.coinbase.com/pl/price/perpetual-protocol
     pub fn place_perp_order(ctx: Context<PlaceOrder>, params: OrderParams) -> Result<()> {
         handle_place_perp_order(ctx, params)
     }
@@ -139,6 +143,7 @@ pub mod drift {
         handle_place_and_take_perp_order(ctx, params, maker_order_id)
     }
 
+    // 10c perp order = Perpetual token order
     pub fn place_and_make_perp_order<'info>(
         ctx: Context<'_, '_, '_, 'info, PlaceAndMake<'info>>,
         params: OrderParams,
@@ -179,6 +184,7 @@ pub mod drift {
         )
     }
 
+    // 10c BUY/SELL multiple orders
     pub fn place_orders(ctx: Context<PlaceOrder>, params: Vec<OrderParams>) -> Result<()> {
         handle_place_orders(ctx, params)
     }

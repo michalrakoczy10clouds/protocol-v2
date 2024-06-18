@@ -8,6 +8,7 @@ pub const QUOTE_SPOT_MARKET_INDEX: u16 = 0;
 // USER ACCOUNT CONSTANTS
 pub const MAX_SPOT_POSITIONS: u8 = 8;
 pub const MAX_PERP_POSITIONS: u8 = 8;
+// 10c BUY/SELL todo increase to 100
 pub const MAX_OPEN_ORDERS: u8 = 32;
 
 // PRECISIONS

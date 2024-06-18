@@ -1336,6 +1336,7 @@ pub enum OrderStatus {
     Canceled,
 }
 
+// 10c BUY/SELL order types so it is potentially what we need in BUY case so LIMIT and MARKET are
 #[derive(Clone, Copy, BorshSerialize, BorshDeserialize, PartialEq, Debug, Eq)]
 pub enum OrderType {
     Market,

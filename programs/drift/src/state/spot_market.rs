@@ -181,6 +181,7 @@ pub struct SpotMarket {
     pub padding: [u8; 48],
 }
 
+// 10c ? spot market vs pepr market
 impl Default for SpotMarket {
     fn default() -> Self {
         SpotMarket {
